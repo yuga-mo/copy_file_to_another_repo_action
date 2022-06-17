@@ -43,7 +43,7 @@ then
     echo "fileFound: $x";
     if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
       echo "Found one that can be transfered: $x"
-      mkdir /${x}
+      mkdir -p $CLONE_DIR/${x}
       cp -R "$x" "$x"
     fi
   done
