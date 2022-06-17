@@ -2,8 +2,7 @@ FROM alpine
 
 RUN apk update && \
   apk upgrade && \
-  apk add git rsync \
-  apk add --no-cache --upgrade bash
+  apk add git rsync
 
 ADD entrypoint.sh /entrypoint.sh
 
