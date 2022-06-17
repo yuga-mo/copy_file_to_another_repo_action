@@ -38,12 +38,12 @@ fi
 DEST_LOCALE="$CLONE_DIR";
 
 echo "Copying contents to git repo"
-mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
+mkdir -p "$CLONE_DIR/posts"
 
   for d in posts/*/ ; do
     if [ -d "$d" ]; then
-      [ ! -d "$DEST_LOCALE/$d" ] && mkdir "$DEST_LOCALE/$d";
       [ ! -d "$DEST_LOCALE/$d" ] && echo "DIRECTORY: $DEST_LOCALE/$d";
+      [ ! -d "$DEST_LOCALE/$d" ] && mkdir "$DEST_LOCALE/$d";
     fi
   done
   # for x in posts/* posts/**/*; do
