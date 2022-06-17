@@ -37,8 +37,6 @@ fi
 
 echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
-if [ -z "$INPUT_USE_RSYNC" ]
-then
   for d in posts/*/ ; do
     if [ -d "$d" ]; then
       [ ! -d "$d" ] && mkdir $d;
@@ -48,20 +46,9 @@ then
     echo "fileFound: $x";
     if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
       echo "Found one that can be transfered: $x"
-      mkdir /${x}
       cp -R "$x" "$x"
     fi
   done
-else
-  echo "rsync mode detected"
-  for x in posts/* posts/**/*; do
-    echo "fileFound: $x"
-    if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
-      echo "Found one that can be transfered: $x"
-      rsync -avrh $x $x
-    fi
-  done
-fi
 
 cd "$CLONE_DIR"
 
