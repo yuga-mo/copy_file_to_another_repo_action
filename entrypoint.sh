@@ -56,6 +56,7 @@ mkdir -p "$CLONE_DIR/posts"
   done
 
 cd "$CLONE_DIR"
+ls;
 
 if [ ! -z "$INPUT_DESTINATION_BRANCH_CREATE" ]
 then
