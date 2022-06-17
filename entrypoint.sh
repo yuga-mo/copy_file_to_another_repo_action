@@ -42,6 +42,12 @@ then
   cp -R "$INPUT_SOURCE_FILE" "$DEST_COPY"
 else
   echo "rsync mode detected"
+  for x in posts/* posts/**/*; do
+    echo "fileFound: $x"
+    if [[ "$x" != .*"PRIVATE_DRAFT".* ]]; then
+      echo "Found one that can be transfered: $x"
+    fi
+  done
   rsync -avrh "$INPUT_SOURCE_FILE" "$DEST_COPY"
 fi
 
