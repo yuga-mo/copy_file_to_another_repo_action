@@ -46,9 +46,9 @@ else
     echo "fileFound: $x"
     if [[ "$x" != .*"PRIVATE_DRAFT".* ]]; then
       echo "Found one that can be transfered: $x"
+      rsync -avrh $x $x
     fi
   done
-  rsync -avrh "$INPUT_SOURCE_FILE" "$DEST_COPY"
 fi
 
 cd "$CLONE_DIR"
