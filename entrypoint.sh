@@ -40,7 +40,7 @@ mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
 if [ -z "$INPUT_USE_RSYNC" ]
 then
   for x in posts/* posts/**/*; do
-    echo "fileFound: $x"
+    echo "fileFound: $x";
     arrIN=(${x//\// })
     if [[ ${#arrIN[@]} == 3 ]];then
       echo "this file needs a subdirectory: $x";
