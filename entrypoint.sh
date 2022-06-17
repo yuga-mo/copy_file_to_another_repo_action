@@ -51,7 +51,7 @@ mkdir -p "$CLONE_DIR/posts"
     echo "fileFound: $x";
     if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
       echo "Found one that can be transfered: $x"
-      cp -R "$x" "$DEST_LOCALE$x"
+      cp -R "$x" "$DEST_LOCALE/$x"
     fi
   fi
   done
