@@ -38,25 +38,25 @@ fi
 DEST_LOCALE="$CLONE_DIR";
 
 echo "Copying contents to git repo"
-mkdir -p "$CLONE_DIR/posts"
-  for d in posts/*/ ; do
-    if [ -d "$d" ]; then
-    echo "$CLONE_DIR/$d";
-      [ ! -d "$d" ] && mkdir "$CLONE_DIR/$d";
-    fi
-  done
-  for x in posts/* posts/**/*; do
-  if [ ! -d "$x" ]; then
-    echo "fileFound: $x";
-    if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
-      echo "Found one that can be transfered: $x"
-      cp -R "$x" "$CLONE_DIR/$x"
-    fi
-  fi
-  done
+mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
+
+  # for d in posts/*/ ; do
+  #   if [ -d "$d" ]; then
+  #     [ ! -d "$d" ] && mkdir "$DEST_LOCALE/$d";
+  #   fi
+  # done
+  # for x in posts/* posts/**/*; do
+  # if [ ! -d "$x" ]; then
+  #   echo "fileFound: $x";
+  #   if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
+  #     echo "Found one that can be transfered: $x"
+  #     cp -R "$x" "$DEST_LOCALE$x"
+  #   fi
+  # fi
+  # done
 
 cd "$CLONE_DIR"
-ls;
+ls
 
 if [ ! -z "$INPUT_DESTINATION_BRANCH_CREATE" ]
 then
