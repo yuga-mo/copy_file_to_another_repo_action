@@ -46,15 +46,15 @@ mkdir -p "$CLONE_DIR/posts"
       [ ! -d "$DEST_LOCALE/$d" ] && mkdir "$DEST_LOCALE/$d";
     fi
   done
-  # for x in posts/* posts/**/*; do
-  # if [ ! -d "$x" ]; then
-  #   echo "fileFound: $x";
-  #   if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
-  #     echo "Found one that can be transfered: $x"
-  #     cp -R "$x" "$DEST_LOCALE$x"
-  #   fi
-  # fi
-  # done
+  for x in posts/* posts/**/*; do
+  if [ ! -d "$x" ]; then
+    echo "fileFound: $x";
+    if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
+      echo "Found one that can be transfered: $x"
+      cp -R "$x" "$DEST_LOCALE$x"
+    fi
+  fi
+  done
 
 cd "$CLONE_DIR/posts"
 ls
