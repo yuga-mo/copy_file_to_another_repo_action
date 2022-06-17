@@ -40,11 +40,11 @@ DEST_LOCALE="$CLONE_DIR";
 echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
 
-  # for d in posts/*/ ; do
-  #   if [ -d "$d" ]; then
-  #     [ ! -d "$d" ] && mkdir "$DEST_LOCALE/$d";
-  #   fi
-  # done
+  for d in posts/*/ ; do
+    if [ -d "$d" ]; then
+      [ ! -d "$d" ] && mkdir "$DEST_LOCALE/$d";
+    fi
+  done
   # for x in posts/* posts/**/*; do
   # if [ ! -d "$x" ]; then
   #   echo "fileFound: $x";
