@@ -43,11 +43,13 @@ mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
     fi
   done
   for x in posts/* posts/**/*; do
+  if [ ! -d "$d" ]; then
     echo "fileFound: $x";
     if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
       echo "Found one that can be transfered: $x"
       cp -R "$x" "$x"
     fi
+  fi
   done
 
 cd "$CLONE_DIR"
