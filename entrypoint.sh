@@ -41,16 +41,15 @@ if [ -z "$INPUT_USE_RSYNC" ]
 then
   for x in posts/* posts/**/*; do
     echo "fileFound: $x";
-    arrIN=($(echo $x | tr "/\" "\n"))
-
-
-    if [[ ${#arrIN[@]} == 3 ]];then
-      echo "this file needs a subdirectory: $x";
-      mkdir posts/${arrIN[2]}
-    fi
     if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
       echo "Found one that can be transfered: $x"
-      rsync -avrh $x $x
+      arrIN=(${x//\// })
+      if [[ ${#arrIN[@]} == 3 ]];then
+        echo "this file needs a subdirectory: $x";
+        mkdir test/${arrIN[2]}
+      fi
+
+      cp -R "$INPUT_SOURCE_FILE" "$DEST_COPY"
     fi
   done
 else
