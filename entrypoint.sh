@@ -44,7 +44,7 @@ else
   echo "rsync mode detected"
   for x in posts/* posts/**/*; do
     echo "fileFound: $x"
-    if [[ "$x" != .*"PRIVATE_DRAFT".* ]]; then
+    if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
       echo "Found one that can be transfered: $x"
       rsync -avrh $x $x
     fi
