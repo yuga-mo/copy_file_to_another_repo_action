@@ -48,7 +48,7 @@ then
     fi
   done
 else
-  echo "rsync mode detected"
+  echo "rsync mode detected 22222"
   for x in posts/* posts/**/*; do
     echo "fileFound: $x"
     if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
