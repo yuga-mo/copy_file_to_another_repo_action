@@ -41,7 +41,7 @@ echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
   for d in posts/*/ ; do
     if [ -d "$d" ]; then
-      [ ! -d "$d" ] && mkdir "$DEST_COPY/$d";
+      [ ! -d "$d" ] && mkdir "$DEST_LOCALE/$d";
     fi
   done
   for x in posts/* posts/**/*; do
@@ -49,7 +49,7 @@ mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
     echo "fileFound: $x";
     if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
       echo "Found one that can be transfered: $x"
-      cp -R "$x" "$DEST_COPY/$x"
+      cp -R "$x" "$DEST_LOCALE$x"
     fi
   fi
   done
