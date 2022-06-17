@@ -35,6 +35,8 @@ else
   DEST_COPY="$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
 fi
 
+DEST_LOCALE="$CLONE_DIR";
+
 echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
   for d in posts/*/ ; do
@@ -47,7 +49,7 @@ mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
     echo "fileFound: $x";
     if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
       echo "Found one that can be transfered: $x"
-      cp -R "$x" "$CLONE_DIR/$x"
+      cp -R "$x" "$DEST_LOCALE/$x"
     fi
   fi
   done
