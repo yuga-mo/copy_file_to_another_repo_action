@@ -43,7 +43,7 @@ mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
     fi
   done
   for x in posts/* posts/**/*; do
-  if [ ! -d "$d" ]; then
+  if [ ! -d "$x" ]; then
     echo "fileFound: $x";
     if [[ ${x} != *"PRIVATE_DRAFT"* ]]; then
       echo "Found one that can be transfered: $x"
